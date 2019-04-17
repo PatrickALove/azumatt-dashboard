@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        
+        body {
+            font-family: Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #00afd4;
+            background: url('/assets/logos/azumattlogo.png') no-repeat;
+        }
+        
+        @keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #bar {
+            width: 1918px;
+            height: 42px;
+            overflow: hidden;
+            background: #000000;
+            margin: 0;
+        }
+        
+        #bar ul li {
+            float: left;
+            height: 42px;
+            margin: 0;
+            padding: 0;
+            width: 1000px;
+            overflow: visible;
+        }
+        
+        #bar h2 {
+            background-color: #ffffff;
+            width: 250px;
+            height: 42px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+            float: left;
+            margin: 0;
+            padding: 7px 0px 0px 0px;
+            transform-origin: left center;
+            z-index: 2;
+        }
+        
+        
+        #bar p {
+            font-size: 18px;
+            text-align: left;
+            font-weight: normal;
+            text-transform: uppercase;
+            float: left;
+            margin: 0;
+            padding: 8px 0px 0px 20px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        
+        
+        #stats {
+            width: 1920px;
+            position: relative;
+        }
+        
+        #longerL {
+            width: 1650px;
+            position: relative;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        #announceMsg {
+            display: inline-block;
+            padding-left: 105%;
+            animation: scroll 25s infinite linear;
+            word-spacing: 0.25em;
+        }
+        
+        @keyframes scroll {
+            0% {transform: translate(0, 0);}
+            100% {transform: translate(-105%, 0);}
+        }
+        
+    
+        
+ 
+        
+    </style>
+</head>
+<body>
+        
+        
+        <!-- Announcement Bar -->
+        <div id="bar">
+            <ul id="stats">
+                <h2>Announcements</h2><p id="longerL"><span id="announceMsg"></span></p>
+            </ul>
+        </div>
+        
+        
+    
+    <script>
+        'use strict';
+        
+        const announce = nodecg.Replicant('announce');
+        
+        
+        announce.on('change', newVal => {
+            document.getElementById('announceMsg').innerHTML = newVal;
+        });
+        
+    </script>
+</body>
+</html>

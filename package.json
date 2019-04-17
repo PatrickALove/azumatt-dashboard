@@ -1,0 +1,139 @@
+{
+  "name": "azumatt-dashboard",
+  "version": "0.0.0",
+  "description": "",
+  "homepage": "",
+  "author": {
+    "name": "Azumatt Gaming",
+    "email": "azumatt@azumattgaming.com",
+    "url": "http://vincedemase.com"
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "1.3.2",
+    "dashboardPanels": [
+      {
+        "name": "news-bar",
+        "title": "News Bar",
+        "width": 3,
+        "file": "news-bar.html",
+        "headerColor": "#000000"
+      },
+      {
+        "name": "announcements",
+        "title": "Announcements",
+        "width": 3,
+        "file": "announcements.html",
+		"headerColor": "#000000"
+      },
+      {
+        "name": "intermission",
+        "title": "Break Screen",
+        "width": 3,
+        "file": "intermission.html",
+		"headerColor": "#000000"
+      },
+	  {
+        "name": "StartingSoon",
+        "title": "Start Screen",
+        "width": 3,
+        "file": "StartingSoon.html",
+		"headerColor": "#000000"
+      },
+      {
+        "name": "lower-thirds",
+        "title": "Lower Thirds",
+        "width": 3,
+        "file": "lower-thirds.html",
+		"headerColor": "#000000"
+      },
+      {
+        "name": "hosts",
+        "title": "Hosts",
+        "width": 4,
+        "file": "hosts.html",
+		"headerColor": "#000000"
+      },
+      {
+        "name": "promotions",
+        "title": "Promotions",
+        "width": 5,
+        "file": "promotions.html",
+		"headerColor": "#000000"
+      },
+	  
+	  {
+		"name": "testing",
+		"title": "Testing",
+        "file": "testing.html",
+        "width": 3,
+		"headerColor": "#00afd4"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "index.html",
+        "width": 1566,
+        "height": 181
+      },
+      {
+        "file": "intermission.html",
+        "width": 1920,
+        "height": 1080,
+		"headerColor": "#000000"
+      },
+	  {
+        "file": "StartingSoon.html",
+        "width": 1920,
+        "height": 1080,
+		"headerColor": "#000000"
+      },
+      {
+        "file": "announcement-bar.html",
+        "width": 1920,
+        "height": 42
+      },
+      {
+        "file": "lower-thirds.html",
+        "width": 600,
+        "height": 160
+      },
+      {
+        "file": "hosts.html",
+        "width": 1566,
+        "height": 79
+      },
+      {
+        "file": "sponsored-stream.html",
+        "width": 1920,
+        "height": 55
+      },
+	  
+	  {
+        "file": "testing.html",
+        "width": 1920,
+        "height": 55
+      }
+    ],
+    "assetCategories": [
+      {
+        "name": "promo",
+        "title": "Giveaway",
+        "allowedTypes": [
+          "png"
+        ]
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "license": "MIT"
+}

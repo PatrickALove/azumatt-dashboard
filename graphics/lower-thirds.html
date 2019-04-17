@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        
+        body {
+            font-family: Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            animation-name: body;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            overflow: hidden;
+        }
+
+        @keyframes body {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+
+        #container {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            width: 600px;
+            height: 160px;
+            position: relative;
+            top: 1200px;
+            animation-name: main;
+            animation-duration: 15s;
+            animation-iteration-count: 1;
+        }
+
+        #main {
+            width: 600px;
+            height: 115px;
+            background: #000000;
+            color: #fff; 
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes main {
+            0% {top: 1200px;}
+            10% {top: 0px;}
+            90% {top: 0px}
+            100% {top: 1200px;}
+        }
+
+        #main h2 {
+            margin-top: 40px;
+        }
+
+        #tag {
+            background: #1592E6;
+            width: 600px;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 10px 0px;
+            position: relative;
+            top: -45px;
+            z-index: -1;
+            animation-name: tag;
+            animation-duration: 15s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes tag {
+            10% {top: -45px;}
+            18% {top: 0px;}
+            90% {top: 0px;}
+            100% {top: -45px;}
+        }
+
+        #tag h2 {
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- Nameplate Container -->
+    <div id="container">
+
+        <!-- Name Section -->
+        <div id="main">
+            <h2 id="onScreenName">Azumatt</h2>
+        </div>
+
+        <!-- Tag Line -->
+        <div id="tag">
+            <h2 id="onScreenTag">Amazing Azguardian</h2>
+        </div>
+
+    </div>
+
+    <script>
+        'use strict';
+
+        // Calling NodeCG Replicants into variables
+        const onScreenName = nodecg.Replicant('onScreenName');
+        const onScreenTag = nodecg.Replicant('onScreenTag');
+        const showLower = nodecg.Replicant('showLower');
+
+        // Placing new values of Replicants into HTML
+        showLower.on('change', newVal => {
+            if (newVal === 'off') {
+                document.getElementById('container').setAttribute('style', 'display: none;');
+            } else {
+                document.getElementById('container').removeAttribute('style');
+            }
+        });
+
+        onScreenName.on('change', newVal => {
+            document.getElementById('onScreenName').innerHTML = newVal;
+        });
+
+        onScreenTag.on('change', newVal => {
+            document.getElementById('onScreenTag').innerHTML = newVal;
+        });
+        
+    </script>
+
+</body>
+
+</html>

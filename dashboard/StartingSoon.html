@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<style>
+		.monospace {
+			font-family: monospace;
+		}
+        
+        .bar {
+            width: auto;
+            overflow: hidden;
+        }
+        
+        .bar-left {
+            width: auto;
+            float: left;
+            margin-right: 25px;
+            overflow: hidden;
+        }
+        
+        label {
+            float: left;
+            width: 100px;
+            background-color: seagreen;
+            padding: 9px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        input {
+            padding: 10px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        button {
+            padding: 10px;
+            font-size: 12px;
+        }
+        
+        h2 {
+            font-size: 16px;
+            margin-bottom: 0px;
+        }
+        
+        p {
+            font-size: 12px;
+            margin-top: 0px;
+            color: darkgrey;
+        }
+        
+        .divider {
+            border-bottom: 1px solid #525F78;
+        }
+	</style>
+</head>
+<body>
+    
+    <div class="bar">
+        <h2 id="sTitle"></h2>
+        <p id="sMsg"></p>
+		<p id="SubText"></p>
+		<p id="SecondSubText"></p>
+    </div>
+    <br />
+    <div class="divider"></div>
+    <br />
+	<div class="bar">
+        <label>Title</label>
+        <input type="text" id="sbreakTitle"></input>
+    </div>
+    <div class="bar">
+        <label>Message</label>
+        <input type="text" id="sbreakMsg"></input>
+    </div>
+	<div class="bar">
+        <label>SubText</label>
+        <input type="text" id="breakSubText"></input>
+    </div>
+	<div class="bar">
+		<label>SecondSubText</label>
+		<input type="text" id="breakSecondSubText"></input>
+	</div>
+    <br />
+    <button type="button" command="updatebreakscreen">Update</button>
+    <br />
+
+    <script>
+
+        'use strict';
+        
+        
+        const sintTitle = nodecg.Replicant('sintTitle');
+        const sintMsg = nodecg.Replicant('sintMsg');
+		const intSubText= nodecg.Replicant('intSubText');
+		const intSecondSubText= nodecg.Replicant('intSecondSubText');
+
+        
+        const sintTitleInput = document.querySelector('#sbreakTitle');
+        const sintMsgInput = document.querySelector('#sbreakMsg');
+		const intSubTextInput = document.querySelector('#breakSubText');
+		const intSecondSubTextInput = document.querySelector('#breakSecondSubText');
+        
+        
+        sintTitle.on('change', newVal => {
+            document.getElementById('sTitle').innerHTML = newVal;
+        });
+        
+        sintMsg.on('change', newVal => {
+            document.getElementById('sMsg').innerHTML = newVal;
+        });
+		
+		intSubText.on('change', newVal => {
+            document.getElementById('SubText').innerHTML = newVal;
+        });
+		
+		intSecondSubText.on('change', newVal => {
+			document.getElementById('SecondSubText').innerHTML =newVal;
+		});
+		
+		
+        
+        document.querySelector('[command="updatebreakscreen"]').addEventListener('click', () => {
+            sintTitle.value = sintTitleInput.value;
+            sintMsg.value = sintMsgInput.value;
+			intSubText.value = intSubTextInput.value;
+			intSecondSubText.value = intSecondSubTextInput.value;
+        });
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

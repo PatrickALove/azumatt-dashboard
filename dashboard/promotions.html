@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<style>
+		.monospace {
+			font-family: monospace;
+		}
+        
+        .bar {
+            width: auto;
+            overflow: hidden;
+        }
+        
+        .bar-left {
+            width: auto;
+            float: left;
+            margin-right: 25px;
+            overflow: hidden;
+        }
+        
+        label {
+            float: left;
+            width: 100px;
+            background-color: seagreen;
+            padding: 9px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        input {
+            padding: 10px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        button {
+            padding: 10px;
+            font-size: 12px;
+        }
+        
+        h2 {
+            font-size: 16px;
+            margin-bottom: 0px;
+        }
+        
+        p {
+            font-size: 12px;
+            margin-top: 0px;
+            color: darkgrey;
+        }
+        
+        .divider {
+            border-bottom: 1px solid #525F78;
+        }
+
+        #promoTag1input, #promoTag2input, #promoTag3input {
+            width: 100px;
+            background-color: seagreen;
+            padding: 9px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+
+        #promo1ImgInput, #promo2ImgInput, #promo3ImgInput {
+            width: 70px;
+            background-color: #525F78;
+            padding: 9px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+
+        .bar img {
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin-right: 20px;
+        }
+
+	</style>
+</head>
+<body>
+    
+    <div class="bar">
+        <div id="pImg1"></div>
+        <h2 id="pTitle"></h2>
+        <p id="pMsg"></p>
+    </div>
+    <br />
+    <div class="bar">
+        <div id="pImg2"></div>
+        <h2 id="pTitle2"></h2>
+        <p id="pMsg2"></p>
+    </div>
+    <br />
+    <div class="bar">
+        <div id="pImg3"></div>
+        <h2 id="pTitle3"></h2>
+        <p id="pMsg3"></p>
+    </div>
+    <br />
+    <div class="divider"></div>
+    <br />
+
+	<div class="bar">
+        <input type="text" id="promo1ImgInput" value="img name"></input>
+        <input type="text" id="promo1input"></input>
+        <input type="text" id="promoTag1input"></input>
+        <button type="button" command="updatepromo1">Update</button>
+    </div>
+    <br />
+    <div class="bar">
+        <input type="text" id="promo2ImgInput" value="img name"></input>
+        <input type="text" id="promo2input"></input>
+        <input type="text" id="promoTag2input"></input>
+        <button type="button" command="updatepromo2">Update</button>
+    </div>
+    <br />
+    <div class="bar">
+        <input type="text" id="promo3ImgInput" value="img name"></input>
+        <input type="text" id="promo3input"></input>
+        <input type="text" id="promoTag3input"></input>
+        <button type="button" command="updatepromo3">Update</button>
+    </div>
+    <br />        
+    <br />
+
+    <script>
+
+        'use strict';
+        
+        
+        // Calling promotions and giveaway replicants
+        const promo1 = nodecg.Replicant('promo1');
+        const promo2 = nodecg.Replicant('promo2');
+        const promo3 = nodecg.Replicant('promo3');
+        
+        const promoImg1 = nodecg.Replicant('promoImg1');
+        const promoImg2 = nodecg.Replicant('promoImg2');
+        const promoImg3 = nodecg.Replicant('promoImg3');
+
+        const promoTag1 = nodecg.Replicant('promoTag1');
+        const promoTag2 = nodecg.Replicant('promoTag2');
+        const promoTag3 = nodecg.Replicant('promoTag3');
+
+
+        // Promo Update 1
+        document.querySelector('[command="updatepromo1"]').addEventListener('click', () => {
+            promo1.value = document.querySelector('#promo1input').value;
+            promoTag1.value = document.querySelector('#promoTag1input').value;
+            promoImg1.value = document.querySelector('#promo1ImgInput').value;
+        });
+
+        promo1.on('change', newVal => {
+            document.getElementById('pTitle').innerHTML = newVal;
+        });
+
+        promoTag1.on('change', newVal => {
+            document.getElementById('pMsg').innerHTML = newVal;
+        });
+
+        promoImg1.on('change', newVal => {
+            if (newVal === '') {
+                document.getElementById('pImg1').innerHTML= '';
+                document.getElementById('pImg1').setAttribute('style', 'display: none;');
+            } else {
+                var img = document.createElement('img');
+                img.src = '/assets/tru-stream-play/promo/' + newVal + '.png';
+                document.getElementById('pImg1').appendChild(img);
+                document.getElementById('pImg1').removeAttribute('style');
+            }
+        });
+        
+
+        // Promo Update 2
+        document.querySelector('[command="updatepromo2"]').addEventListener('click', () => {
+            promo2.value = document.querySelector('#promo2input').value;
+            promoTag2.value = document.querySelector('#promoTag2input').value;
+            promoImg2.value = document.querySelector('#promo2ImgInput').value;
+        });
+
+        promo2.on('change', newVal => {
+            document.getElementById('pTitle2').innerHTML = newVal;
+        });
+
+        promoTag2.on('change', newVal => {
+            document.getElementById('pMsg2').innerHTML = newVal;
+        });
+
+        promoImg2.on('change', newVal => {
+            if (newVal === '') {
+                document.getElementById('pImg2').innerHTML= '';
+                document.getElementById('pImg2').setAttribute('style', 'display: none;');
+            } else {
+                var img = document.createElement('img');
+                img.src = '/assets/tru-stream-play/promo/' + newVal + '.png';
+                document.getElementById('pImg2').appendChild(img);
+                document.getElementById('pImg2').removeAttribute('style');
+            }
+        });
+
+        // Promo Update 3
+        document.querySelector('[command="updatepromo3"]').addEventListener('click', () => {
+            promo3.value = document.querySelector('#promo3input').value;
+            promoTag3.value = document.querySelector('#promoTag3input').value;
+            promoImg3.value = document.querySelector('#promo3ImgInput').value;
+        });
+
+        promo3.on('change', newVal => {
+            document.getElementById('pTitle3').innerHTML = newVal;
+        });
+
+        promoTag3.on('change', newVal => {
+            document.getElementById('pMsg3').innerHTML = newVal;
+        });
+
+        promoImg3.on('change', newVal => {
+            if (newVal === '') {
+                document.getElementById('pImg3').innerHTML= '';
+                document.getElementById('pImg3').setAttribute('style', 'display: none;');
+            } else {
+                var img = document.createElement('img');
+                img.src = '/assets/tru-stream-play/promo/' + newVal + '.png';
+                document.getElementById('pImg3').appendChild(img);
+                document.getElementById('pImg3').removeAttribute('style');
+            }
+        });
+
+        
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

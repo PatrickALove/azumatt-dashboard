@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<style>
+		.monospace {
+			font-family: monospace;
+		}
+        
+        .bar {
+            width: auto;
+            overflow: hidden;
+        }
+        
+        .bar-left {
+            width: auto;
+            float: left;
+            margin-right: 25px;
+            overflow: hidden;
+        }
+        
+        label {
+            float: left;
+            width: 100px;
+            background-color: seagreen;
+            padding: 9px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        input {
+            padding: 10px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        button {
+            padding: 10px;
+            font-size: 12px;
+        }
+        
+        h2 {
+            font-size: 16px;
+            margin-bottom: 0px;
+        }
+        
+        p {
+            font-size: 12px;
+            margin-top: 0px;
+            color: darkgrey;
+        }
+        
+        .divider {
+            border-bottom: 1px solid #525F78;
+        }
+	</style>
+</head>
+<body>
+    
+    <div class="bar">
+        <h2 id="bName"></h2>
+        <p id="bTag"></p>
+    </div>
+    <br />
+    <div class="divider"></div>
+    <br />
+	<div class="bar">
+        <label>Name</label>
+        <input type="text" id="onScreenName"></input>
+    </div>
+    <div class="bar">
+        <label>Tag</label>
+        <input type="text" id="onScreenTag"></input>
+    </div>
+    <br />
+    <button type="button" command="updateonscreename">Update</button>
+    <button type="button" id="showButton" command="showlower">Show</button>
+    <button type="button" id="hideButton" command="hidelower">Hide</button>
+    <br />
+
+    <script>
+
+        'use strict';
+        
+        // Calling NodeCg Replicants into variables
+        const onScreenName = nodecg.Replicant('onScreenName');
+        const onScreenTag = nodecg.Replicant('onScreenTag');
+
+        
+        const screenNameInput = document.querySelector('#onScreenName');
+        const screenTagInput = document.querySelector('#onScreenTag');
+
+        const showLower = nodecg.Replicant('showLower');
+
+        
+        // Add Name to lower third and show 
+        onScreenName.on('change', newVal => {
+            document.getElementById('bName').innerHTML = newVal;
+        });
+        
+        onScreenTag.on('change', newVal => {
+            document.getElementById('bTag').innerHTML = newVal;
+        });
+        
+        document.querySelector('[command="updateonscreename"]').addEventListener('click', () => {
+            onScreenName.value = screenNameInput.value;
+            onScreenTag.value = screenTagInput.value;
+        });
+
+        document.querySelector('[command="showlower"]').addEventListener('click', () => {
+            showLower.value = 'on';
+
+            setTimeout(function() { showLower.value = 'off' }, 20000);
+        });
+
+        document.querySelector('[command="hidelower"]').addEventListener('click', () => {
+            showLower.value = 'off';
+        });
+
+        showLower.on('change', newVal => {
+            if (newVal === 'on') {
+                document.getElementById('showButton').disabled = true;
+            } else {
+                document.getElementById('showButton').removeAttribute('disabled');
+            }
+        });
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<style>
+		.monospace {
+			font-family: monospace;
+		}
+        
+        .bar {
+            width: auto;
+            overflow: hidden;
+        }
+        
+        .bar-left {
+            width: auto;
+            float: left;
+            margin-right: 25px;
+            overflow: hidden;
+        }
+        
+        label {
+            float: left;
+            width: 100px;
+            background-color: seagreen;
+            padding: 9px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        input {
+			text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+		
+		
+        #titleTagInput {
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            width: 100px;
+            border: 1px solid #ccc;
+            margin-left: -4px;
+        }
+        
+        button {
+            padding: 10px;
+            font-size: 12px;
+        }
+        
+        h2 {
+            font-size: 16px;
+            margin-bottom: 0px;
+        }
+        
+        p {
+            font-size: 12px;
+            margin-top: 0px;
+            color: darkgrey;
+        }
+        
+        .divider {
+            border-bottom: 1px solid #525F78;
+        }
+	</style>
+</head>
+<body>
+    
+    <div class="bar">
+        <h2 id="currentLive"></h2>
+        <p>Currently Live</p>
+    </div>
+    <div class="bar">
+        <h2 id="uNext"></h2>
+        <p>Up Next</p>
+    </div>
+    <br />
+    <div class="divider"></div>
+    <br />
+    <div class="bar">
+        <h2 id="thirdTitle"></h2>
+        <p id="titleTag"></p>
+    </div>
+    <br />
+    <div class="divider"></div>
+    <br />
+	<div class="bar">
+        <label>Currently Live</label>
+        <input type="text" id="currentlyLive"></input>
+    </div>
+    <div class="bar">
+        <label>Up Next</label>
+        <input type="text" id="upNext"></input>
+    </div>
+    <br />
+    <div class="bar">
+		<label>Third Title Top</label>
+            <input type="text" id="thirdTitleInput"></input>
+		<label>Third Title Bottom</label>
+            <input type="text" id="titleTagInput"></input>
+    </div>
+    <br />
+    <button type="button" command="updateschedule">Update</button>
+    <br />
+    <br />
+
+    <script>
+
+        'use strict';
+        
+        
+        const currentlyLive = nodecg.Replicant('currentlyLive');
+        const upNext = nodecg.Replicant('upNext');
+        const thirdTitle = nodecg.Replicant('thirdTitle');
+        const titleTag = nodecg.Replicant('titleTag');
+        
+        const currentlyLiveInput = document.querySelector('#currentlyLive');
+        const upNextInput = document.querySelector('#upNext');
+        const thirdTitleInput = document.querySelector('#thirdTitleInput');
+        const titleTagInput = document.querySelector('#titleTagInput');
+        
+        
+        currentlyLive.on('change', newVal => {
+            document.getElementById('currentLive').innerHTML = newVal;
+        });
+        
+        upNext.on('change', newVal => {
+            document.getElementById('uNext').innerHTML = newVal;
+        });
+
+        thirdTitle.on('change', newVal => {
+           document.getElementById('thirdTitle').innerHTML = newVal; 
+        });
+        
+        titleTag.on('change', newVal => {
+            document.getElementById('titleTag').innerHTML = newVal;
+        });
+
+        document.querySelector('[command="updateschedule"]').addEventListener('click', () => {
+            currentlyLive.value = currentlyLiveInput.value;
+            upNext.value = upNextInput.value;
+            thirdTitle.value = thirdTitleInput.value;
+            titleTag.value = titleTagInput.value;
+        });
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

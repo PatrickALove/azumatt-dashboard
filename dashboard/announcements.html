@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<style>
+		.monospace {
+			font-family: monospace;
+		}
+        
+        .bar {
+            width: auto;
+        }
+        
+        label {
+            float: left;
+            width: 100px;
+            background-color: seagreen;
+            padding: 9px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        input {
+            padding: 10px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        button {
+            padding: 10px;
+            font-size: 12px;
+        }
+
+        .bar p {
+            font-style: italic;
+            color: #ccc;
+        }
+	</style>
+</head>
+<body>
+
+    <div class="bar">
+        <p id="announcement"></p>
+    </div>
+
+    <br />
+
+    <div class="bar">
+        <label>Announcement</label>
+        <textarea rows="4" cols="50" id="announceInput"></textarea>
+        <button type="button" command="updateannounce">Update</button>
+    </div>
+
+    <script>
+
+        'use strict';
+        const announce = nodecg.Replicant('announce');
+        const announceInput = document.getElementById('announcement');
+
+        
+        announce.on('change', newVal => {
+            announceInput.innerHTML = newVal;
+        });
+        
+        document.querySelector('[command="updateannounce"]').addEventListener('click', () => {
+            announce.value = document.querySelector('#announceInput').value;
+        });
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

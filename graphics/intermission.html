@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        
+        body {
+            font-family: Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background: #000000;
+            animation-name: body;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes body {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+        
+        @keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #container {
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+			<!--
+            background: linear-gradient(-145deg, #00afd4, rgba(255,0,0,0), rgba(255,0,0,0), #00afd4);
+            background-size: 400% 400%;
+            animation: Gradient 30s ease infinite;
+			-->
+        }
+        
+        #main {
+            float: left;
+            width: 3840px;
+            height: 255px;
+            overflow: hidden;
+            animation-name: main;
+            animation-duration: 45s;
+            animation-iteration-count: infinite;
+            position: relative;
+        }
+        
+        @keyframes main {
+            0% {left: 1920px;}
+            3% {left: 0px;}
+            47% {left: 0px;}
+            50% {left: -1920px;}
+            97% {left: -1920px;}
+            100% {left: -3840px;}
+        }
+        
+        #rotation {
+            overflow: hidden;
+            width: 3840px;
+            height: 255px;
+        }
+        
+        .title {
+            width: 1920px;
+            height: 255px;
+            float: left;
+            position: relative;
+        }
+        
+        #main h2 {
+            font-size: 40px;
+            text-transform: uppercase;
+            font-weight: 900;
+            margin: 0;
+            padding: 0;
+            margin-top: 35px;
+            margin-left: 35px;
+        }
+        
+        #main p {
+            margin: 0;
+            padding: 0;
+            margin-left: 35px;
+            margin-top: -10px;
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #00afd4;
+            animation-name: tagline;
+            animation-duration: 45s;
+            animation-iteration-count: infinite;
+            position: relative;
+        }
+        
+        @keyframes tagline {
+            0% {left: 200px; opacity: 0;}
+            3% {left: 0px; opacity: 1;}
+            46% {left: 0px; opacity: 1;}
+            47% {left: 200px; opacity: 0;}
+            50% {left: 0px; opacity: 1;}
+            97% {left: 0px; opacity: 1;}
+            100% {left: 200px; opacity: 1;}
+        }
+
+        .title ul li {
+            float: left;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #intermission {
+            width: 1200px;
+            height: 585px;
+            text-align: left;
+            overflow: hidden;
+        }
+        
+        #intTitle {
+            font-size: 100px;
+            text-transform: uppercase;
+            color: #00afd4;
+            font-weight: 900;
+            margin: 0;
+            margin-left: 35px;
+            margin-top: 300px;   
+            position: relative;
+            animation-name: intT;
+            animation-duration: 2s;
+        }
+        
+        @keyframes intT {
+            0% {top: 200px; opacity: 0; font-size: 80px;}
+            50% {top: 100px; opacity: .5; font-size: 100px;}
+            100% {top: 0px; opacity: 1; font-size: 100px;}
+        }
+        
+        #intMsg {
+            font-size: 30px;
+            text-transform: uppercase;
+            font-weight: normal;
+            color: #ffffff;
+            padding-left: 35px;
+            margin: 0 auto;
+            margin-top: -20px;
+            width: 1890px;
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            animation-name: intM;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+            animation-timing-function: ease;
+        }
+        
+        @keyframes intM {
+            0% {left: -2500px;}
+            30% {left: -2500px;}
+            100% {left: 0px; opacity: 1;}
+        }
+        
+        #spotify {
+            width: 1000px;
+            margin: 0 auto;
+            margin-top: 30px;
+            margin-right: 245px;
+            text-align: right;
+            color: #677475;
+            font-size: 25px;
+            animation-name: spotify;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+        }
+        
+        @keyframes spotify {
+            0% {opacity: 0;}
+            50% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+        
+        #spotify img {
+            float: left;
+            margin-right: 100px;
+        }
+
+        #spot-break {
+            float: center;
+            margin: 0;
+            margin-right: 15px;
+        }
+        
+        #songName {
+            float: left;
+            margin: 0;
+			margin-left: 35px;
+            margin-right: 15px;
+            max-width: 350px;
+            max-height: 30px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: wrap;
+        }
+        
+        #artist {
+            margin: 0;
+			margin-left: 35px;
+            float: left;
+            max-width: 250px;
+            max-height: 30px;
+            text-overflow: ellipsis;
+
+            white-space: nowrap;
+        }
+
+        #bottom_main {
+            width: 1200px;
+            height: 200px;
+            margin: 0;
+            padding: 0;
+            margin-top: 2000px;
+            overflow: hidden;
+        }
+
+        #bottom_rotation {
+            width: 1200px;
+            height: 600px;
+            overflow: hidden;
+            position: relative;
+            top: 200px;
+            animation-name: promo;
+            animation-duration: 45s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes promo {
+            0% {top: 200px;}
+            2% {top: 0px;}
+            33% {top: 0px;}
+            35% {top: -200px;}
+            66% {top: -200px;}
+            68% {top: -400px;}
+            98% {top: -400px;}
+            100% {top: -600px;}
+        }
+
+        #promo1, #promo2, #promo3 {
+            width: 1200px;
+            height: 200px;
+            overflow: hidden;
+            background-color: #00afd4;
+        }
+
+        #pImg1, #pImg2, #pImg3 {
+            float: left;
+            padding-left: 220px;
+            padding-right: 0px;
+            width: 200px;
+            height: 200px;
+        }
+		
+        #bottom_rotation img {
+            width: 160px;
+            height: 160px;
+            margin-top: 20px;
+        }
+
+        #bottom_rotation h2 {
+            text-transform: uppercase;
+            font-size: 50px;
+            font-weight: 900;
+            margin: 0;
+            padding: 0;
+            margin-top: 55px;
+            position: relative;
+            animation-name: proh2;
+            animation-duration: 45s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes proh2 {
+            0% {opacity: 0;}
+            3% {opacity: 1;}
+            33% {opacity: 1;}
+            34% {opacity: 0;}
+            37% {opacity: 1;}
+            66% {opacity: 1;}
+            67% {opacity: 0;}
+            70% {opacity: 1;}
+            98% {opacity: 1;}
+            100% {opacity: 0;}
+        }
+
+        #bottom_rotation p {
+            text-transform: uppercase;
+            color: #ccc;
+            font-weight: normal;
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+            margin-top: -10px;
+            animation-name: proh2;
+            animation-duration: 45s;
+            animation-iteration-count: infinite;
+        }
+        
+    </style>
+</head>
+<body>
+	<div id="container">
+        
+        <!-- Intermission Area -->
+        <div id="intermission"> 
+            <h2 id="intTitle"></h2>
+            <p id="intMsg"></p>
+            <div id="spotify">
+                <p id="artist"></p>
+                <p id="spot-break"></br></p>
+                <p id="songName"></p>
+                <img src="/assets/tru-stream-play/logos/spotify-sketched-logo-variant.png" border="0" />
+            </div>
+        </div>
+        
+        <!-- Main Message Rotation -->
+        <div id="main">
+            <div id="rotation">
+            <div class="title">
+                <h2 id="mainTitle"></h2>
+                <p>Currently Live</p>
+            </div>
+            <div class="title">
+                <h2 id="secondTitle"></h2>
+                <p>Up Next</p>
+            </div>
+            </div>
+        </div>
+
+        <div id="bottom_main">
+            <div id="bottom_rotation">
+                <div id="promo1">
+                    <div id="pImg1"></div>
+                    <h2 id="promo1h2"></h2>
+                    <p id="promo1p"></p>
+                </div>
+                <div id="promo2">
+                    <div id="pImg2"></div>
+                    <h2 id="promo2h2"></h2>
+                    <p id="promo2p"></p>
+                </div>
+                <div id="promo3">
+                    <div id="pImg3"></div>
+                    <h2 id="promo3h2"></h2>
+                    <p id="promo3p"></p>
+                </div>
+            </div>
+        </div>   
+        
+    </div>
+    
+    <script>
+        'use strict';
+        
+        // Calling NodeCG Replicants into variables
+        const intTitle = nodecg.Replicant('intTitle');
+        const intMsg = nodecg.Replicant('intMsg');
+        const currentlyLive = nodecg.Replicant('currentlyLive');
+        const upNext = nodecg.Replicant('upNext');
+        
+        // Place new values of Replicants into HTML
+        intTitle.on('change', newVal => {
+            document.getElementById('intTitle').innerHTML = newVal;
+        });
+        
+        intMsg.on('change', newVal => {
+            document.getElementById('intMsg').innerHTML = newVal;
+        });
+        
+        currentlyLive.on('change', newVal => {
+            document.getElementById('mainTitle').innerHTML = newVal;
+        });
+
+        upNext.on('change', newVal => {
+            document.getElementById('secondTitle').innerHTML = newVal;
+        });
+
+        // Calling promotions and giveaway replicants
+        const promo1 = nodecg.Replicant('promo1');
+        const promo2 = nodecg.Replicant('promo2');
+        const promo3 = nodecg.Replicant('promo3');
+        
+        const promoImg1 = nodecg.Replicant('promoImg1');
+        const promoImg2 = nodecg.Replicant('promoImg2');
+        const promoImg3 = nodecg.Replicant('promoImg3');
+
+        const promoTag1 = nodecg.Replicant('promoTag1');
+        const promoTag2 = nodecg.Replicant('promoTag2');
+        const promoTag3 = nodecg.Replicant('promoTag3');
+
+        // Spotify Integration
+        const songRep = nodecg.Replicant('currentSong', 'ncg-spotify');
+
+        songRep.on('change', newVal => {
+	        document.getElementById('songName').innerHTML = newVal.name;
+	        document.getElementById('artist').innerHTML = newVal.artist;
+        });
+
+        // Placing promo values into HTML
+
+        promo1.on('change', newVal => {
+            document.getElementById('promo1h2').innerHTML = newVal;
+        });
+
+        promoImg1.on('change', newVal => {
+            if (newVal === '') {
+                document.getElementById('pImg1').innerHTML = '';
+                document.getElementById('pImg1').setAttribute('style', 'display: none;');
+            } else {
+                var img = document.createElement('img');
+                img.src = '/assets/tru-stream-play/promo/' + newVal + '.png';
+                document.getElementById('pImg1').appendChild(img);
+                document.getElementById('pImg1').removeAttribute('style');
+            }
+        });
+        
+        promoTag1.on('change', newVal => {
+            document.getElementById('promo1p').innerHTML = newVal;
+        });
+
+        promo2.on('change', newVal => {
+            document.getElementById('promo2h2').innerHTML = newVal;
+        });
+
+        promoImg2.on('change', newVal => {
+            if (newVal === '') {
+                document.getElementById('pImg2').innerHTML = '';
+                document.getElementById('pImg2').setAttribute('style', 'display: none;');
+            } else {
+                var img = document.createElement('img');
+                img.src = '/assets/tru-stream-play/promo/' + newVal + '.png';
+                document.getElementById('pImg2').appendChild(img);
+                document.getElementById('pImg2').removeAttribute('style');
+            }
+        });
+        
+        promoTag2.on('change', newVal => {
+            document.getElementById('promo2p').innerHTML = newVal;
+        });
+
+        promo3.on('change', newVal => {
+            document.getElementById('promo3h2').innerHTML = newVal;
+        });
+
+        promoImg3.on('change', newVal => {
+            if (newVal === '') {
+                document.getElementById('pImg3').innerHTML = '';
+                document.getElementById('pImg3').setAttribute('style', 'display: none;');
+            } else {
+                var img = document.createElement('img');
+                img.src = '/assets/tru-stream-play/promo/' + newVal + '.png';
+                document.getElementById('pImg3').appendChild(img);
+                document.getElementById('pImg3').removeAttribute('style');
+            }
+        });
+        
+        promoTag3.on('change', newVal => {
+            document.getElementById('promo3p').innerHTML = newVal;
+        });
+        
+    </script>
+</body>
+</html>

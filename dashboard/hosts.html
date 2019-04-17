@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<style>
+		.monospace {
+			font-family: monospace;
+		}
+        
+        .bar {
+            width: auto;
+            overflow: hidden;
+        }
+
+        #top {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .bar-top {
+            width: auto;
+            margin-right: 25px;
+            overflow: hidden;
+        }
+        
+        label {
+            float: left;
+            width: 100px;
+            background-color: seagreen;
+            padding: 9px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        input {
+            padding: 10px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        button {
+            padding: 10px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            cursor: default;
+            color: #ccc;
+        }
+        
+        h2 {
+            font-size: 16px;
+            margin-bottom: 0px;
+        }
+        
+        p {
+            font-size: 12px;
+            margin-top: 0px;
+            color: darkgrey;
+        }
+        
+        .divider {
+            border-bottom: 1px solid #525F78;
+        }
+
+        #tagInput1, #tagInput2, #tagInput3, #tagInput4, #tagInput5, #tagInput6 {
+            text-align: center;
+            background-color: seagreen;
+            padding: 9px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+	</style>
+</head>
+<body>
+    
+    <div id="top">
+    <div class="bar-top" id="barH1">
+        <h2 id="host1"></h2>
+        <p id="tag1"></p>
+    </div>
+    <div class="bar-top" id="barH2">
+        <h2 id="host2"></h2>
+        <p id="tag2"></p>
+    </div>
+    <div class="bar-top" id="barH3">
+        <h2 id="host3"></h2>
+        <p id="tag3"></p>
+    </div>
+    <div class="bar-top" id="barH4">
+        <h2 id="host4"></h2>
+        <p id="tag4"></p>
+    </div>
+	<div class="bar-top" id="barH6">
+        <h2 id="host6"></h2>
+        <p id="tag6"></p>
+    </div>       
+    <div class="bar-top" id="barH5">
+        <h2 id="host5"></h2>
+        <p id="tag5"></p>
+    </div>       
+    </div>
+    <br />
+    <br />
+    <div class="divider"></div>
+    <br />
+	<div class="bar">
+        <input type="text" id="hostInput1"></input>
+        <input type="text" id="tagInput1" value="Host"></input>
+    </div>
+    <div class="bar">
+        <input type="text" id="hostInput2"></input>
+        <input type="text" id="tagInput2" value="Co-Host"></input>
+    </div>
+    <div class="bar">
+        <input type="text" id="hostInput3"></input>
+        <input type="text" id="tagInput3" value="Guest"></input>
+    </div>
+    <div class="bar">
+        <input type="text" id="hostInput4"></input>
+        <input type="text" id="tagInput4" value="Guest"></input>
+    </div>
+	<div class="bar">
+        <input type="text" id="hostInput6"></input>
+        <input type="text" id="tagInput6" value="Guest"></input>
+    <div class="bar">
+        <input type="text" id="hostInput5"></input>
+        <input type="text" id="tagInput5" value="Guest"></input>
+    </div>
+    <br />
+    <button type="button" command="updatehosts">Update</button>
+    <button type="button" id="showButton" command="showhosts">Show</button>
+    <button type="button" id="hideButton" command="hidehosts">Hide</button>
+
+    <script>
+
+        'use strict';
+        
+        // Calling NodeCG Replicants into variables
+        const host1 = nodecg.Replicant('host1');
+        const host2 = nodecg.Replicant('host2');
+        const host3 = nodecg.Replicant('host3');
+        const host4 = nodecg.Replicant('host4');
+        const host5 = nodecg.Replicant('host5');
+		const host6 = nodecg.Replicant('host6');
+
+        const hostTag1 = nodecg.Replicant('hostTag1');
+        const hostTag2 = nodecg.Replicant('hostTag2');
+        const hostTag3 = nodecg.Replicant('hostTag3');
+        const hostTag4 = nodecg.Replicant('hostTag4');
+        const hostTag5 = nodecg.Replicant('hostTag5');
+		const hostTag6 = nodecg.Replicant('hostTag6');
+
+        const showHost = nodecg.Replicant('showHost');
+
+        // Add Host names to HTML and remove from display if no value
+
+        document.querySelector('[command="showhosts"]').addEventListener('click', () => {
+            showHost.value = 'on';
+
+            setTimeout(function() { showHost.value='off' }, 20000);
+        });
+
+        document.querySelector('[command="hidehosts"]').addEventListener('click', () => {
+            showHost.value = 'off';
+        });
+
+        showHost.on('change', newVal => {
+            if (newVal === 'on') {
+                document.getElementById("showButton").disabled = true;
+            } else {
+                document.getElementById("showButton").removeAttribute("disabled");
+            }
+        });
+
+        host1.on('change', newVal => {
+            document.getElementById('host1').innerHTML = newVal; 
+
+            if (newVal === '') {
+                document.getElementById('barH1').setAttribute('style', 'display: none;');
+            } else {
+                document.getElementById('barH1').removeAttribute('style');
+            }
+        });
+
+        hostTag1.on('change', newVal => {
+            document.getElementById('tag1').innerHTML = newVal;
+        });
+
+        host2.on('change', newVal => {
+            document.getElementById('host2').innerHTML = newVal;
+
+            if (newVal === '') {
+                document.getElementById('barH2').setAttribute('style', 'display: none;');
+            } else {
+                document.getElementById('barH2').removeAttribute('style');
+            }
+        });
+
+        hostTag2.on('change', newVal => {
+            document.getElementById('tag2').innerHTML = newVal;
+        });
+
+        host3.on('change', newVal => {
+            document.getElementById('host3').innerHTML = newVal;
+
+            if (newVal === '') {
+                document.getElementById('barH3').setAttribute('style', 'display: none;');
+            } else {
+                document.getElementById('barH3').removeAttribute('style');
+            }
+        });
+
+        hostTag3.on('change', newVal => {
+            document.getElementById('tag3').innerHTML = newVal;
+        });
+
+        host4.on('change', newVal => {
+            document.getElementById('host4').innerHTML = newVal;
+
+            if (newVal === '') {
+                document.getElementById('barH4').setAttribute('style', 'display: none;');
+            } else {
+                document.getElementById('barH4').removeAttribute('style');
+            }
+        });
+
+        hostTag4.on('change', newVal => {
+            document.getElementById('tag4').innerHTML = newVal;
+        });
+
+        host5.on('change', newVal => {
+            document.getElementById('host5').innerHTML = newVal;
+
+            if (newVal === '') {
+                document.getElementById('barH5').setAttribute('style', 'display: none;');
+            } else {
+                document.getElementById('barH5').removeAttribute('style');
+            }
+        });
+
+        hostTag5.on('change', newVal => {
+            document.getElementById('tag5').innerHTML = newVal;
+        });
+		
+		host6.on('change', newVal => {
+            document.getElementById('host6').innerHTML = newVal;
+
+            if (newVal === '') {
+                document.getElementById('barH6').setAttribute('style', 'display: none;');
+            } else {
+                document.getElementById('barH6').removeAttribute('style');
+            }
+        });
+
+        hostTag6.on('change', newVal => {
+            document.getElementById('tag6').innerHTML = newVal;
+        });
+
+        document.querySelector('[command="updatehosts"]').addEventListener('click', () => {
+            host1.value = document.querySelector('#hostInput1').value;
+            host2.value = document.querySelector('#hostInput2').value;
+            host3.value = document.querySelector('#hostInput3').value;
+            host4.value = document.querySelector('#hostInput4').value;
+            host5.value = document.querySelector('#hostInput5').value;
+			host6.value = document.querySelector('#hostInput6').value;
+
+            hostTag1.value = document.querySelector('#tagInput1').value;
+            hostTag2.value = document.querySelector('#tagInput2').value;
+            hostTag3.value = document.querySelector('#tagInput3').value;
+            hostTag4.value = document.querySelector('#tagInput4').value;
+            hostTag5.value = document.querySelector('#tagInput5').value;
+			hostTag6.value = document.querySelector('#tagInput6').value;
+        });
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

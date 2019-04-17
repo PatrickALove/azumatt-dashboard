@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<style>
+		.monospace {
+			font-family: monospace;
+		}
+        
+        .bar {
+            width: auto;
+            overflow: hidden;
+        }
+        
+        .bar-left {
+            width: auto;
+            float: left;
+            margin-right: 25px;
+            overflow: hidden;
+        }
+        
+        label {
+            float: left;
+            width: 100px;
+            background-color: seagreen;
+            padding: 9px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        input {
+            padding: 10px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+        }
+        
+        button {
+            padding: 10px;
+            font-size: 12px;
+        }
+        
+        h2 {
+            font-size: 16px;
+            margin-bottom: 0px;
+        }
+        
+        p {
+            font-size: 12px;
+            margin-top: 0px;
+            color: darkgrey;
+        }
+        
+        .divider {
+            border-bottom: 1px solid #525F78;
+        }
+	</style>
+</head>
+<body>
+    
+    <div class="bar">
+        <h2 id="bTitle"></h2>
+        <p id="bMsg"></p>
+    </div>
+    <br />
+    <div class="divider"></div>
+    <br />
+	<div class="bar">
+        <label>Title</label>
+        <input type="text" id="breakTitle"></input>
+    </div>
+    <div class="bar">
+        <label>Message</label>
+        <input type="text" id="breakMsg"></input>
+    </div>
+    <br />
+    <button type="button" command="updatebreakscreen">Update</button>
+    <br />
+
+    <script>
+
+        'use strict';
+        
+        
+        const intTitle = nodecg.Replicant('intTitle');
+        const intMsg = nodecg.Replicant('intMsg');
+
+        
+        const intTitleInput = document.querySelector('#breakTitle');
+        const intMsgInput = document.querySelector('#breakMsg');
+
+        
+        
+        intTitle.on('change', newVal => {
+            document.getElementById('bTitle').innerHTML = newVal;
+        });
+        
+        intMsg.on('change', newVal => {
+            document.getElementById('bMsg').innerHTML = newVal;
+        });
+        
+        document.querySelector('[command="updatebreakscreen"]').addEventListener('click', () => {
+            intTitle.value = intTitleInput.value;
+            intMsg.value = intMsgInput.value;
+        });
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

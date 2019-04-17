@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        
+        body {
+            font-family: Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            animation-name: body;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes body {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #container {
+            width: 2000px;
+            height: 179px;
+            overflow: hidden;
+            background: #000000;
+        }
+        
+        #bar {
+            width: 2000px;
+            height: 41px;
+            overflow: hidden;
+            background: #151515;
+        }
+        
+        #bar ul li {
+            float: left;
+            height: 41px;
+            margin: 0;
+            padding: 0;
+            width: 450px;
+            overflow: hidden;
+        }
+        
+        #bar h2 {
+            background-color: #00afd4;
+            width: 550px;
+            height: 41px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+            float: left;
+            margin: 0;
+            padding: 7px 0px 0px 0px;
+            transform-origin: left center;
+            z-index: 2;
+            animation-name: h2;
+            animation-duration: 90s;
+            animation-iteration-count: infinite;
+            animation-delay: .5s;
+        }
+        
+        @keyframes h2 {
+            0% {width: 650px;}
+            2% {width: 211px;}
+            49% {width: 211px;}
+            50% {width: 350px;}
+            51% {width: 211px;}
+            98% {width: 211px;}
+            100% {width: 550px;}
+        }
+        
+        #bar p {
+            font-size: 18px;
+            text-align: left;
+            font-weight: normal;
+            text-transform: uppercase;
+            float: left;
+            margin: 0;
+            opacity: 0;
+            padding: 8px 0px 0px 20px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            animation-name: p;
+            animation-duration: 90s;
+            animation-iteration-count: infinite;
+            animation-delay: 1s;
+        }
+        
+        @keyframes p {
+            1% {opacity: 0;}
+            4% {opacity: 1;}
+            48% {opacity: 1;}
+            53% {opacity: 1;}
+            98% {opacity: 1;}
+            100% {opacity: 1;}
+        }
+        
+        #logo-space {
+            width: 472px;
+            height: 137px;
+            float: left;
+            overflow: hidden;
+            background: linear-gradient(-145deg, #00afd4, #191919, #000000, #ffffff);
+            background-size: 400% 400%;
+            animation: Gradient 15s ease infinite;
+        }
+        
+        @keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+        
+        #logo-space ul li {
+            width: 418px;
+            height: 137px;
+            margin: auto;
+            padding: 0;
+            animation-name: logos;
+            animation-duration: 45s;
+            animation-iteration-count: infinite;
+            position: relative;
+            animation-name: logos;
+            animation-duration: 90s;
+            animation-iteration-count: infinite;
+        }
+
+        #logo-space img {
+            height: 137px;
+        }
+        
+        @keyframes logos {
+            0% {top: 137px;}
+            1% {top: 0px;}
+            32% {top: 0px;}
+            33% {top: -137px;}
+            65% {top: -137px;}
+            66% {top: -274px;}
+            99% {top: -274px;}
+            100% {top: -411px;}
+        }
+        
+        #main {
+            float: left;
+            width: 1092px;
+            height: 137px;
+            overflow: hidden;
+			
+        }
+        
+        #rotation {
+            width: 3276px;
+            height: 137px;
+        }
+        
+        .title {
+            width: 1092px;
+            height: 137px;
+            float: left;
+            animation-name: main;
+            animation-duration: 45s;
+            animation-iteration-count: infinite;
+            position: relative;
+        }
+        
+        @keyframes main {
+            0% {left: 1092px;}
+            2% {left: 0px;}
+            33% {left: 0px;}
+            35% {left: -1092px;}
+            66% {left: -1092px;}
+            68% {left: -2184px;}
+            98% {left: -2184px;}
+            100% {left: -3276px;}
+        }
+        
+        .title h2 {
+            font-size: 40px;
+            text-transform: uppercase;
+            font-weight: 900;
+            margin: 0;
+            padding: 0;
+            margin-top: 35px;
+            margin-left: 45px;
+        }
+        
+        .title p {
+            margin: 0;
+            padding: 0;
+            margin-left: 45px;
+            margin-top: -10px;
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #00afd4;
+            animation-name: tagline;
+            animation-duration: 45s;
+            animation-iteration-count: infinite;
+            position: relative;
+        }
+        
+        @keyframes tagline {
+            0% {left: 100px; opacity: 0;}
+            3% {left: 0px; opacity: 1;}
+            33% {left: 0px; opacity: 1;}
+            34% {left: 100px; opacity: 0;}
+            36% {left: 0px; opacity: 1;}
+            66% {left: 0px; opacity: 1;}
+            67% {left: 100px; opacity: 0;}
+            69% {left: 0px; opacity: 1;}
+            98% {left: 0px; opacity: 1;}
+            100% {left: 100px; opacity: 0;}
+        }
+        
+        .title ul li {
+            float: left;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #stats {
+            width: 3128px;
+            left: 1566px;
+            animation-name: anounce;
+            animation-duration: 90s;
+            animation-iteration-count: infinite;
+            animation-delay: 1s;
+            position: relative;
+        }
+        
+        #longerL {
+			left:225px;
+            width: 1000px;
+            position: relative;
+        }
+		#thisweek {
+			left: 216px;
+            #width: 1000px;
+            position: relative;
+        }
+            
+        @keyframes anounce {
+            0% {left: 1566px;}
+            2% {left: 0px;}
+            48% {left: 0px;}
+            50% {left: -1565px;}
+            98% {left: -1565px;}
+            100% {left: -3528px;}
+        }
+
+        #advertisements {
+            width: 1092px;
+            height: 137px;
+            overflow: hidden;
+            position: absolute;
+            top: 41px;
+        }
+
+        #adrotate {
+            width: 3776px;
+            height: 137px;
+            position: relative;
+            left: 1092px;
+            animation-name: ads;
+            animation-duration: 90s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes ads {
+            0% {left: 1092px;}
+            48% {left: 1092px;}
+            50% {left: -500px;}
+            73% {left: -500px;}
+            74% {left: -1592px;}
+            86% {left: -1592px;}
+            87% {left: -2684px;}
+            99% {left: -2684px;}
+            100% {left: -3776px;}
+        }
+
+        .ad {
+            float: left;
+            width: 1092px;
+            height: 140px;
+            background: #282828;
+        }
+
+        .ad img {
+            float: left;
+            width: 130px;
+            height: 130px;
+            margin-top: 5px;
+            margin-left: 45px;
+            margin-right: 45px;
+        }
+
+        .ad h2 {
+		    color: #00000;
+            font-size: 50px;
+            text-transform: uppercase;
+            font-weight: 900;
+            margin: 0;
+            padding: 0;
+            margin-top: 25px;
+            margin-left: 45px;
+        }
+
+        .ad p {
+            margin: 0;
+            padding: 0;
+            margin-left: 45px;
+            margin-top: -10px;
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #00afd4;
+        }
+
+        .blankad {
+            float: left;
+            background: #00afd4;
+            width: 500px;
+            height: 140px;
+            content: '';
+        }
+
+        #timeframe {
+            margin: 0;
+            padding: 5px;
+            position: absolute;
+            z-index: 2;
+            top: 121px;
+            left: 1451px;
+            width: auto;
+            height: auto;
+            overflow: hidden;
+            background: #00afd4;
+            opacity: 1;
+            animation-name: time;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes time {
+            0% {opacity: 0;}
+            50% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+
+        #timeframe h2 {
+            margin: 0;
+            padding: 0;
+        }
+
+        #timeframe p {
+            margin: 0;
+            margin-top: -5px;
+            padding: 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- News Bar Container -->
+	<div id="container">
+        <!-- Sub, Follower, Donation, and Anouncements bar -->
+        <div id="bar">
+            <ul id="stats">
+                <li><h2>Latest Sub</h2><p id="latestSub"></p></li>
+                <li><h2>Latest Follow</h2><p id="latestFollow"></p></li>
+                <li><h2>Follower Goal</h2><p id="latestDonation"></p></li>
+				<!--<li><h2>Follower</h2><p id="latestDonation"></p></li>-->
+                <h2 id="thisweek">THIS WEEK</h2><p id="longerL"></p>
+            </ul>
+        </div>
+        <!-- Logo Slider -->
+        <div id="logo-space">
+            <ul>
+                <li><img src="/assets/tru-stream-play/logos/partner_colored.png" /></li>
+                <li><img src="/assets/tru-stream-play/logos/partner_colored.png" /></li>
+                <li><img src="/assets/tru-stream-play/logos/thor-hammer-banGold.png" /></li>
+            </ul>
+        </div>
+
+        <!-- Main News Area -->
+        <div id="main">
+            <div id="rotation">
+            <div class="title">
+                <h2 id="mainTitle"></h2>
+                <p>Currently Live</p>
+            </div>
+            <div class="title">
+                <h2 id="secondTitle"></h2>
+                <p>Up Next</p>
+            </div>
+            <div class="title">
+                <h2 id="thirdTitle"></h2>
+                <p id="titleTag"></p>
+            </div>
+            </div>
+            <div id="advertisements">
+                <div id="adrotate">
+                <div class="blankad"></div>
+                <div id="promo1" class="ad">
+                    <div id="pImg1"></div>
+                    <h2 id="promo1h2"></h2>
+                    <p id="promo1p"></p>
+                </div>
+                <div id="promo2" class="ad">
+                    <div id="pImg2"></div>
+                    <h2 id="promo2h2"></h2>
+                    <p id="promo2p"></p>
+                </div>
+                <div id="promo3" class="ad">
+                    <div id="pImg3"></div>
+                    <h2 id="promo3h2"></h2>
+                    <p id="promo3p"></p>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="timeframe">
+                <h2 id="currentTime"></h2>
+                <p>My time</p>
+        </div>
+    </div>
+
+
+    <script>
+        'use strict';
+
+        // Calling NodeCG Replicants into variables
+        const currentlyLive = nodecg.Replicant('currentlyLive');
+        const upNext = nodecg.Replicant('upNext');
+        const announce = nodecg.Replicant('announce');
+
+        const thirdTitle = nodecg.Replicant('thirdTitle');
+        const titleTag = nodecg.Replicant('titleTag');
+
+        // Placing new values of Replicants into HTML
+        currentlyLive.on('change', newVal => {
+            document.getElementById('mainTitle').innerHTML = newVal;
+        });
+
+        upNext.on('change', newVal => {
+            document.getElementById('secondTitle').innerHTML = newVal;
+        });
+
+        thirdTitle.on('change', newVal => {
+            document.getElementById('thirdTitle').innerHTML = newVal;
+        });
+
+        titleTag.on('change', newVal => {
+            document.getElementById('titleTag').innerHTML = newVal;
+        });
+
+        announce.on('change', newVal => {
+            document.getElementById('longerL').innerHTML = newVal;
+        });
+
+        function date_time() {
+        var date = new Date();
+        var am_pm = "AM";
+        var hour = date.getHours();
+        if(hour>=12){
+            am_pm = "PM";
+        }
+        if (hour == 0) {
+            hour = 12;
+        }
+        if(hour>12){
+            hour = hour - 12;
+        }
+        if(hour<10){
+            hour = "0"+hour;
+        }
+
+        var minute = date.getMinutes();
+        if (minute<10){
+            minute = "0"+minute;
+        }
+        var sec = date.getSeconds();
+        if(sec<10){
+            sec = "0"+sec;
+        }
+
+        document.getElementById("currentTime").innerHTML =  hour+":"+minute+" "+am_pm;
+        }
+        setInterval(date_time,500);
+
+        // Calling promotions and giveaway replicants
+        const promo1 = nodecg.Replicant('promo1');
+        const promo2 = nodecg.Replicant('promo2');
+        const promo3 = nodecg.Replicant('promo3');
+        
+        const promoImg1 = nodecg.Replicant('promoImg1');
+        const promoImg2 = nodecg.Replicant('promoImg2');
+        const promoImg3 = nodecg.Replicant('promoImg3');
+
+        const promoTag1 = nodecg.Replicant('promoTag1');
+        const promoTag2 = nodecg.Replicant('promoTag2');
+        const promoTag3 = nodecg.Replicant('promoTag3');
+
+        // Twitch User Information replicants
+        const twitchsub = nodecg.Replicant('twitchsub');
+        const twitchfollow = nodecg.Replicant('twitchfollow');
+        const twitchdonation = nodecg.Replicant('twitchdonation');
+
+
+        // Twith Stats 
+        twitchsub.on('change', newVal => {
+            document.getElementById('latestSub').innerHTML = newVal;
+        });
+
+        twitchfollow.on('change', newVal => {
+            document.getElementById('latestFollow').innerHTML = newVal;
+        });
+
+        twitchdonation.on('change', newVal => {
+            document.getElementById('latestDonation').innerHTML = newVal;
+        });
+
+        // Main information panel
+        promo1.on('change', newVal => {
+            document.getElementById('promo1h2').innerHTML = newVal;
+
+            if (newVal === '') {
+                document.getElementById('promo1').setAttribute('style', 'display: none;');
+            } else {
+                document.getElementById('promo1').removeAttribute('style');
+            }
+        });
+
+        promoImg1.on('change', newVal => {
+            if (newVal === '') {
+                document.getElementById('pImg1').innerHTML = '';
+                document.getElementById('pImg1').setAttribute('style', 'display: none;');
+            } else {
+                var img = document.createElement('img');
+                img.src = '/assets/tru-stream-play/promo/' + newVal + '.png';
+                document.getElementById('pImg1').appendChild(img);
+                document.getElementById('pImg1').removeAttribute('style');
+            }
+        });
+        
+        promoTag1.on('change', newVal => {
+            document.getElementById('promo1p').innerHTML = newVal;
+        });
+
+        promo2.on('change', newVal => {
+            document.getElementById('promo2h2').innerHTML = newVal;
+
+            if (newVal === '') {
+                document.getElementById('promo2').setAttribute('style', 'display: none;');
+            } else {
+                document.getElementById('promo2').removeAttribute('style');
+            }
+        });
+
+        promoImg2.on('change', newVal => {
+            if (newVal === '') {
+                document.getElementById('pImg2').innerHTML = '';
+                document.getElementById('pImg2').setAttribute('style', 'display: none;');
+            } else {
+                var img = document.createElement('img');
+                img.src = '/assets/tru-stream-play/promo/' + newVal + '.png';
+                document.getElementById('pImg2').appendChild(img);
+                document.getElementById('pImg2').removeAttribute('style');
+            }
+        });
+        
+        promoTag2.on('change', newVal => {
+            document.getElementById('promo2p').innerHTML = newVal;
+        });
+
+        promo3.on('change', newVal => {
+            document.getElementById('promo3h2').innerHTML = newVal;
+            
+            if (newVal === '') {
+                document.getElementById('promo3').setAttribute('style', 'display: none;');
+            } else {
+                document.getElementById('promo3').removeAttribute('style');
+            }
+        });
+
+        promoImg3.on('change', newVal => {
+            if (newVal === '') {
+                document.getElementById('pImg3').innerHTML = '';
+                document.getElementById('pImg3').setAttribute('style', 'display: none;');
+            } else {
+                var img = document.createElement('img');
+                img.src = '/assets/tru-stream-play/promo/' + newVal + '.png';
+                document.getElementById('pImg3').appendChild(img);
+                document.getElementById('pImg3').removeAttribute('style');
+            }
+        });
+        
+        promoTag3.on('change', newVal => {
+            document.getElementById('promo3p').innerHTML = newVal;
+        });
+
+    </script>
+</body>
+</html>

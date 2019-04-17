@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        
+        body {
+            font-family: Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #00afd4;
+            animation-name: body;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes body {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #container {
+            height: auto;
+            overflow: hidden;
+        }
+
+        #hosts {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            position: relative;
+            animation-name: hosts;
+            animation-duration: 15s;
+            animation-iteration-count: 1;
+            top: 130px;
+        }
+
+        @keyframes hosts {
+            0% {top: 130px;}
+            10% {top: 0px;}
+            90% {top: 0px;}
+            100% {top: 130px;}
+        }
+
+        .host {
+            color: #fff;
+            flex: 1;
+        }
+
+        #hosts h2 {
+            font-size: 30px;
+            font-weight: 900;
+            background: linear-gradient(145deg, #1592E6, #22618D);
+            text-transform: uppercase;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #hosts p {
+            font-weight: normal;
+            font-size: 20px;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        #tag1, #tag3, #tag5 {
+            background: #000000;
+        }
+
+        #tag2, #tag4 {
+            background: #101010;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <!-- Host Names Container -->
+	<div id="container">
+        <!-- List of Host Names -->
+            <div id="hosts" style="display: none;">
+                <div class="host" id="hostile1"><h2 id="host1"></h2><p id="tag1">Host</p></div>
+                <div class="host" id="hostile2"><h2 id="host2"></h2><p id="tag2">Co-Host</p></div>
+                <div class="host" id="hostile3"><h2 id="host3"></h2><p id="tag3">Guest</p></div>
+                <div class="host" id="hostile4"><h2 id="host4"></h2><p id="tag4">Guest</p></div>
+                <div class="host" id="hostile5"><h2 id="host5"></h2><p id="tag5">Guest</p></div>
+            </div>
+    </div>
+    
+    <script>
+        'use strict';
+
+        // Calling NodeCG Replicants into variables
+        const host1 = nodecg.Replicant('host1');
+        const host2 = nodecg.Replicant('host2');
+        const host3 = nodecg.Replicant('host3');
+        const host4 = nodecg.Replicant('host4');
+        const host5 = nodecg.Replicant('host5');
+
+        const hostTag1 = nodecg.Replicant('hostTag1');
+        const hostTag2 = nodecg.Replicant('hostTag2');
+        const hostTag3 = nodecg.Replicant('hostTag3');
+        const hostTag4 = nodecg.Replicant('hostTag4');
+        const hostTag5 = nodecg.Replicant('hostTag5');
+
+        const showHost = nodecg.Replicant('showHost');
+
+        // Add Host names to HTML and remove from display if no value
+
+        showHost.on('change', newVal => {
+            if (newVal === 'on') {
+                document.getElementById('hosts').removeAttribute('style');
+            } else {
+                document.getElementById('hosts').setAttribute('style', 'display: none;');
+            }
+        });
+
+        host1.on('change', newVal => {
+            document.getElementById('host1').innerHTML = newVal;
+            
+            if (newVal === '') {
+                document.getElementById('hostile1').setAttribute("style", "display: none;");
+            } else {
+                document.getElementById('hostile1').removeAttribute("style");
+            }
+        });
+
+        host2.on('change', newVal => {
+            document.getElementById('host2').innerHTML = newVal;
+
+            if (newVal === '') {
+                document.getElementById('hostile2').setAttribute("style", "display: none;");
+            } else {
+                document.getElementById('hostile2').removeAttribute("style");
+            }
+        });
+
+        host3.on('change', newVal => {
+            document.getElementById('host3').innerHTML = newVal;
+
+            if (newVal === '') {
+                document.getElementById('hostile3').setAttribute("style", "display: none;");
+            } else {
+                document.getElementById('hostile3').removeAttribute("style");
+            }
+        });
+
+        host4.on('change', newVal => {
+            document.getElementById('host4').innerHTML = newVal;
+
+            if (newVal === '') {
+                document.getElementById('hostile4').setAttribute("style", "display: none;");
+            } else {
+                document.getElementById('hostile4').removeAttribute("style");
+            }
+        });
+
+        host5.on('change', newVal => {
+            document.getElementById('host5').innerHTML = newVal;
+
+            if (newVal === '') {
+                document.getElementById('hostile5').setAttribute("style", "display: none;");
+            } else {
+                document.getElementById('hostile5').removeAttribute("style");
+            }
+        });
+
+
+        hostTag1.on('change', newVal => {
+            document.getElementById('tag1').innerHTML = newVal;
+        });
+
+        hostTag2.on('change', newVal => {
+            document.getElementById('tag2').innerHTML = newVal;
+        });
+
+        hostTag3.on('change', newVal => {
+            document.getElementById('tag3').innerHTML = newVal;
+        });
+
+        hostTag4.on('change', newVal => {
+            document.getElementById('tag4').innerHTML = newVal;
+        });
+
+        hostTag5.on('change', newVal => {
+            document.getElementById('tag5').innerHTML = newVal;
+        });
+        
+    </script>
+</body>
+</html>
